@@ -23,9 +23,16 @@ public class MarkerCommand implements CommandExecutor {
             return true;
         }
 
-        if (!Bukkit.getWorld("world").getEntities().stream().anyMatch(e -> e.getScoreboardTags().contains(strings[0]))) {
+        if (!Bukkit.getWorld("world").getEntities().stream().anyMatch(e -> e.getScoreboardTags().contains(strings[0]))
+        && !Bukkit.getWorld("world").getEntities().stream().anyMatch(e -> e.getScoreboardTags().contains(strings[0] + "_marker"))) {
             commandSender.sendMessage("Marker " + strings[0] + " does not exist");
             return true;
+        }
+
+        String tag = strings[0];
+
+        if (!tag.contains("_marker")) {
+            tag += "_marker";
         }
 
         Entity marker = Bukkit.getWorld("world").getEntities().stream().filter(e -> e.getScoreboardTags().contains(strings[0])).findFirst().get();
