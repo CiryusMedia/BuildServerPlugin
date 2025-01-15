@@ -35,7 +35,8 @@ public class MarkerCommand implements CommandExecutor {
             tag += "_marker";
         }
 
-        Entity marker = Bukkit.getWorld("world").getEntities().stream().filter(e -> e.getScoreboardTags().contains(strings[0])).findFirst().get();
+        String finalTag = tag;
+        Entity marker = Bukkit.getWorld("world").getEntities().stream().filter(e -> e.getScoreboardTags().contains(finalTag)).findFirst().get();
 
         player.teleport(marker);
 
