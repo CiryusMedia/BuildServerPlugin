@@ -4,6 +4,7 @@ main: com.ciryusmedia.buildServerPlugin.BuildServerPlugin
 api-version: '1.21'
 
 commands:
+  challenge:
 
   marker:
 
