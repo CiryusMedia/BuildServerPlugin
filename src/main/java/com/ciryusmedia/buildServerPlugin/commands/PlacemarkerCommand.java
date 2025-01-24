@@ -24,14 +24,8 @@ public class PlacemarkerCommand implements CommandExecutor {
             return true;
         }
 
-        Entity marker = player.getWorld().spawnEntity(player.getLocation(), EntityType.ARMOR_STAND);
+        Entity marker = player.getWorld().spawnEntity(player.getLocation(), EntityType.MARKER);
         marker.addScoreboardTag(strings[0] + "_marker");
-
-        int playerX = player.getLocation().getBlockX();
-        int playerY = player.getLocation().getBlockY();
-        int playerZ = player.getLocation().getBlockZ();
-
-        player.getWorld().getBlockAt(playerX, playerY - 1, playerZ).setType(Material.RED_WOOL);
 
         player.sendMessage("Summoned a new marker \"" + strings[0] + "\"");
 
